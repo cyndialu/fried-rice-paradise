@@ -1,0 +1,32 @@
+.heading {
+    background-image: url('../app/assets/image/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.banner {
+    font-size: 5em;
+    font-weight: bold;
+}   
+.story {
+    margin-top: 50px;
+    height: 500px;
+    background-color: rgba(255, 255, 255,0.5);
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.5em;   
+}
+.menu {
+    height:100vh;
+    background-color: rgba(238, 222, 202, 0.3);
+}
+@media (max-width: 768px) {
+    .banner {
+        font-size: 4em;
+    }
+}
