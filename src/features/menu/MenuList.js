@@ -14,8 +14,8 @@ const MenuList = () => {
                 {
                     riceMenu.map(rice => {
                         return (
-                            <Col md='4' >
-                                <MenuCard menu={rice} />
+                            <Col md='4'>
+                                <MenuCard menu={rice} key={rice.id} />
                             </Col>
                         );
                     })
@@ -27,8 +27,8 @@ const MenuList = () => {
                 {
                     pastaMenu.map(pasta => {
                         return (
-                            <Col md='4' >
-                                <MenuCard menu={pasta} />
+                            <Col md='4'>
+                                <MenuCard menu={pasta} key={pasta.id} />
                             </Col>
                         );
                     })
@@ -40,8 +40,8 @@ const MenuList = () => {
                 {
                     sweetMenu.map(sweet => {
                         return (
-                            <Col md='4' >
-                                <MenuCard menu={sweet} />
+                            <Col md='4'>
+                                <MenuCard menu={sweet} key={sweet.id} />
                             </Col>
                         );
                     })

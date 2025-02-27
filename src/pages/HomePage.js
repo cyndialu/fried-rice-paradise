@@ -29,8 +29,8 @@ const HomePage = () => {
                     {
                         riceMenu.map(rice => {
                             return (
-                                <Col md='4' >
-                                    <MenuCard menu={rice} />
+                                <Col md='4'>
+                                    <MenuCard menu={rice} key={rice.id} />
                                 </Col>
                             );
                         })

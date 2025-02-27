@@ -1,4 +1,6 @@
 import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
+import MenuForm from './MenuForm';
+
 
 const MenuCard = ({ menu }) => {
     const { name, image, description, price } = menu;
@@ -10,9 +12,7 @@ const MenuCard = ({ menu }) => {
                 <CardText>{description}</CardText>
                 <div className='d-flex justify-content-between'>
                     <p>${price}</p>
-                    <button className='btn btn-sm btn-danger add-button'>
-                        <i class="fa fa-plus" /> Add
-                    </button>
+                    <MenuForm menu={menu} />
                 </div>
             </CardBody>
         </Card>
