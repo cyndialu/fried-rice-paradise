@@ -1,11 +1,12 @@
 import { Container, Col, Row } from 'reactstrap';
+import { useSelector } from 'react-redux';
 import MenuCard from './MenuCard';
 import { selectRiceMenu, selectPastaMenu, selectSweetMenu } from './menuSlice';
 
 const MenuList = () => {
-    const riceMenu = selectRiceMenu();
-    const pastaMenu = selectPastaMenu();
-    const sweetMenu = selectSweetMenu();
+    const riceMenu = useSelector(selectRiceMenu);
+    const pastaMenu = useSelector(selectPastaMenu);
+    const sweetMenu = useSelector(selectSweetMenu);
     return (
         <Container className='divMenu'>
             <h3 className='mt-5'>Fried Rice</h3>
@@ -14,8 +15,8 @@ const MenuList = () => {
                 {
                     riceMenu.map(rice => {
                         return (
-                            <Col md='4'>
-                                <MenuCard menu={rice} key={rice.id} />
+                            <Col md='4' key={rice.id}>
+                                <MenuCard menu={rice} />
                             </Col>
                         );
                     })
@@ -27,8 +28,8 @@ const MenuList = () => {
                 {
                     pastaMenu.map(pasta => {
                         return (
-                            <Col md='4'>
-                                <MenuCard menu={pasta} key={pasta.id} />
+                            <Col md='4' key={pasta.id}>
+                                <MenuCard menu={pasta} />
                             </Col>
                         );
                     })
@@ -40,8 +41,8 @@ const MenuList = () => {
                 {
                     sweetMenu.map(sweet => {
                         return (
-                            <Col md='4'>
-                                <MenuCard menu={sweet} key={sweet.id} />
+                            <Col md='4' key={sweet.id}>
+                                <MenuCard menu={sweet} />
                             </Col>
                         );
                     })

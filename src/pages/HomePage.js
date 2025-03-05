@@ -1,10 +1,11 @@
 import { Container, Button, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
-//import '../styles/HomePage.css';
+import { useSelector } from 'react-redux';
 import { selectRiceMenu } from '../features/menu/menuSlice';
 import MenuCard from '../features/menu/MenuCard';
+
 const HomePage = () => {
-    const riceMenu = selectRiceMenu();
+    const riceMenu = useSelector(selectRiceMenu);
     return (
         <>
             <Container fluid className='heading p-5'>
@@ -29,8 +30,8 @@ const HomePage = () => {
                     {
                         riceMenu.map(rice => {
                             return (
-                                <Col md='4'>
-                                    <MenuCard menu={rice} key={rice.id} />
+                                <Col md='4' key={rice.id}>
+                                    <MenuCard menu={rice}  />
                                 </Col>
                             );
                         })

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Modal, ModalHeader, ModalFooter, FormGroup, Label, Container, Col } from 'reactstrap';
 import { Formik, Field, Form } from "formik";
 import { CartContext } from "../../components/CartContext";
@@ -28,16 +28,21 @@ const MenuForm = ({ menu }) => {
             itemName: name,
             instruction: values.instructionTxt,
             itemQuantity: quantity,
+            itemPrice: price,
             itemPrices: totalPrice
         };
 
+        console.log('Submitting order: ', order);
         addToCart(order);
         setModalOpen(false);
+        setQuantity(1);
     };
 
     return (
         <>
-            <Button className='btn-danger add-button rounded-pill col-3' onClick={() => setModalOpen(true)}>
+            <Button className='btn-danger add-button rounded-pill col-3'
+                onClick={() => setModalOpen(true)}
+            >
                 <i className="fa fa-plus" /> Add
             </Button>
             <Modal size='lg' isOpen={modalOpen}>
@@ -65,16 +70,28 @@ const MenuForm = ({ menu }) => {
                             </FormGroup>
                             <ModalFooter>
                                 <Col xs='3'>
-                                    <button type='button' className='btn btn-sm' onClick={decrement}>
+                                    <button
+                                        type='button'
+                                        className='btn btn-sm'
+                                        onClick={decrement}
+                                    >
                                         <i className="fa fa-minus" />
                                     </button>
                                     <span className=" bg-danger col-4 rounded-pill" >{quantity}</span>
-                                    <button type='button' className='btn btn-sm' onClick={increment}>
+                                    <button
+                                        type='button'
+                                        className='btn btn-sm'
+                                        onClick={increment}
+                                    >
                                         <i className="fa fa-plus" />
                                     </button>
                                 </Col>
                                 <Col>
-                                    <Button type='submit' color='danger' className='rounded-pill col-12 d-flex justify-content-between'>
+                                    <Button
+                                        type='submit'
+                                        color='danger'
+                                        className='rounded-pill col-12 d-flex justify-content-between'
+                                    >
                                         <span>Add to Cart</span>
                                         <span>${totalPrice}</span>
                                     </Button>
