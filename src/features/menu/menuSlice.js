@@ -29,4 +29,8 @@ export const selectSweetMenu = (state) => {
     return state.menu.menuItems.filter((menu) => menu.category === 'Sweet');
 };
 
+export const selectSidesMenu = (state) => {
+    return state.menu.menuItems.filter((menu) => menu.category === 'Sides');
+}
+
 export default menuSlice.reducer;

@@ -1,12 +1,13 @@
 import { Container, Col, Row } from 'reactstrap';
 import { useSelector } from 'react-redux';
 import MenuCard from './MenuCard';
-import { selectRiceMenu, selectPastaMenu, selectSweetMenu } from './menuSlice';
+import { selectRiceMenu, selectPastaMenu, selectSweetMenu, selectSidesMenu } from './menuSlice';
 
 const MenuList = () => {
     const riceMenu = useSelector(selectRiceMenu);
     const pastaMenu = useSelector(selectPastaMenu);
     const sweetMenu = useSelector(selectSweetMenu);
+    const sidesMenu = useSelector(selectSidesMenu);
     return (
         <Container className='divMenu'>
             <h3 className='mt-5'>Fried Rice</h3>
@@ -30,6 +31,19 @@ const MenuList = () => {
                         return (
                             <Col md='4' key={pasta.id}>
                                 <MenuCard menu={pasta} />
+                            </Col>
+                        );
+                    })
+                }
+            </Row>
+            <h3 className='mt-5'>Sides</h3>
+            <hr />
+            <Row className='ms-auto'>
+                {
+                    sidesMenu.map(sides => {
+                        return (
+                            <Col md='4' key={sides.id}>
+                                <MenuCard menu={sides} />
                             </Col>
                         );
                     })
