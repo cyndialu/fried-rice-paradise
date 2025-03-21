@@ -10,11 +10,13 @@ const Cart = () => {
 
     console.log('Cart items: ', cartItems)
 
+    const tax = totalAmount * 0.06;
+
     return (
-        <Container className='m-5'>
-            <h2>Your Cart</h2>
+        <Container className='my-5'>
+            <h1>Your Cart</h1>
             {cartItems && cartItems.length > 0 ? (
-                <>
+                <Container className='my-5'>
                     {
                         cartItems.map((cartItem) => (
                             <Row key={cartItem.itemId} className='my-3 p-3 border rounded'>
@@ -51,8 +53,9 @@ const Cart = () => {
                                 </Col>
                                 <Col md={2}>
                                     <Button
-                                        color='danger'
+                                        color='secondary'
                                         size='sm'
+                                        className='rounded-pill'
                                         onClick={() => removeFromCart(cartItem.itemId)}
                                     >
                                         Remove
@@ -61,24 +64,54 @@ const Cart = () => {
                             </Row>
                         ))
                     }
-                    <Row className='mt-4'>
-                        <Col md={8}>
-                            <Link to='/menu'>
-                                <Button color='danger' className='mx-2'>
-                                    Add Item
-                                </Button>
-                            </Link>
-                            <Button color='danger' className='mx-2' onClick={clearCart}>
-                                Clear Cart
+                    <div className="d-flex justify-content-center mb-5">
+                        <Link to='/menu'>
+                            <Button color='danger' className='mx-2 rounded-pill'>
+                                Add Item
                             </Button>
-                        </Col>
-                        <Col md={4}>
-                            <h4>Your Total: ${totalAmount.toFixed(2)}</h4>
-                        </Col>
-                    </Row>
-                </>
+                        </Link>
+                        <Button color='danger' className='mx-2 rounded-pill' onClick={clearCart}>
+                            Clear Cart
+                        </Button>
+                    </div>
+                    <hr />
+                    <div className="my-5">
+                        <h4>Your Total</h4>
+                        <div className="mt-4" style={{ maxWidth: '500px' }}>
+                            <div className="d-flex justify-content-between">
+                                <p>Subtotal</p>
+                                <p>${totalAmount.toFixed(2)}</p>
+                            </div>
+                            <hr />
+                            <div className="d-flex justify-content-between">
+                                <p>Tax</p>
+                                <p>${tax.toFixed(2)}</p>
+                            </div>
+                            <hr />
+                            <div className="d-flex justify-content-between">
+                                <b>Total</b>
+                                <p>${(totalAmount + tax).toFixed(2)}</p>
+                            </div>
+                            <Button
+                                color='danger'
+                                size='md'
+                                className='rounded-pill my-3 float-end'>Proceed to Checkout</Button>
+                        </div>
+                    </div>
+                </Container>
             ) : (
-                <p>Your cart is empty</p>
+                <div className="text-center">
+                    <h4>-- Your cart is empty --</h4>
+                    <Link to='/menu'>
+                        <Button color='danger'
+                            className='rounded-pill mt-3'
+                            size='md'
+                        >
+                            Add Item
+                        </Button>
+                    </Link>
+                </div>
+
             )}
         </Container>
     );
