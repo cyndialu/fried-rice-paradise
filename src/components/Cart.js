@@ -29,20 +29,20 @@ const Cart = () => {
                                 <Col md={3}>
                                     <div className='d-flex align-items-center'>
                                         <Button
-                                            color='secondary'
                                             size='sm'
+                                            color='light'
                                             onClick={() => updateQuantity(cartItem.itemId, cartItem.itemQuantity - 1)}
                                             disabled={cartItem.itemQuantity <= 1}
                                         >
-                                            -
+                                            <i className="fa fa-minus" />
                                         </Button>
-                                        <span className='mx-2'>{cartItem.itemQuantity}</span>
+                                        <span className='mx-3'>{cartItem.itemQuantity}</span>
                                         <Button
-                                            color='secondary'
                                             size='sm'
+                                            color='light'
                                             onClick={() => updateQuantity(cartItem.itemId, cartItem.itemQuantity + 1)}
                                         >
-                                            +
+                                            <i className="fa fa-plus" />
                                         </Button>
                                     </div>
                                 </Col>

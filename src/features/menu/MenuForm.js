@@ -40,7 +40,7 @@ const MenuForm = ({ menu }) => {
 
     return (
         <>
-            <Button className='btn-danger add-button rounded-pill col-3'
+            <Button className='btn-danger add-button rounded-pill btn-sm'
                 onClick={() => setModalOpen(true)}
             >
                 <i className="fa fa-plus" /> Add
@@ -77,7 +77,7 @@ const MenuForm = ({ menu }) => {
                                     >
                                         <i className="fa fa-minus" />
                                     </button>
-                                    <span className=" bg-danger col-4 rounded-pill" >{quantity}</span>
+                                    <span className="mx-2 rounded-pill" >{quantity}</span>
                                     <button
                                         type='button'
                                         className='btn btn-sm'
