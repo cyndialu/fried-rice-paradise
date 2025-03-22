@@ -10,3 +10,4 @@ Building an ordering app with React for a small business named Fried Rice Paradi
 ### `Future Upgrade`
 * Integrate with backend system to manage user accounts and process orders.
 
+[Click here](https://fried-rice-paradise.web.app/) to see the app.
